@@ -1,0 +1,56 @@
+!! Colorscheme
+
+*background:  #2f2b26
+*foreground:  #ffffff
+ black:       #313539
+ red:         #c63737
+ green:       #2e8b57
+ yellow:      #f2e635
+ blue:        #314ad0
+ magenta:     #b30ad0
+ cyan:        #32d0fc
+ white:       #c3cdc8
+
+
+
+!! URxvt Appearance
+URxvt.font: xft:JetBrains Mono:pixelsize=12:antialias=true,xft:Symbola
+URxvt.boldFont: xft:JetBrains Mono:pixelsize=12:antialias=true
+URxvt.italicFont: xft:JetBrains Mono:pixelsize=12:antialias=true
+URxvt.boldItalicfont: xft:JetBrains Mono:pixelsize=12:antialias=true
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 24
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt*depth: 32
+!!URxvt.transparent:   true
+URxvt.shading:       50
+URxvt.iso14755: false
+
+!! Common Keybinds for Navigations
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+
+!! Copy Paste & Other Extensions
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.urlLauncher: firefox
+URxvt.underlineURLs: true
+URxvt.urlButton: 1

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+setbg &		# Set the background
+sxhkd -c $HOME/.config/sxhkdrc &	# Bind keys
+xsetroot -cursor_name left_ptr &
+xset r rate 500 30 &	# Speed xrate up
+unclutter &		# Remove mouse when idle
+#picom --config ~/.config/picom.conf &		# xcompmgr for transparency
+picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 &
+dunst & # dunst for notifications
+slstatus &
+mpdupdate &
+#blueberry-tray &
+#xrandr --output LVDS1 --mode 1366x768 --output HDMI1 --mode 1920x1080 --right-of LVDS1 &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+xwallpaper --no-randr /usr/share/backgrounds/magyarch/wallpaper.png &
+
+
+
+
+
+

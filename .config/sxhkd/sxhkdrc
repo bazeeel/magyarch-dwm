@@ -1,0 +1,133 @@
+# Main and float terminal
+super + {_,shift + } Return
+    {$TERMINAL, $TERMFLOAT -g 110x30+450-350}
+
+# Dmenu2 and rofi(window switcher, application launcher)
+super + {_,shift +} d
+    {dmenu_run -i -p 'Search' -nb '#2f2b26' -sb '#2e8b57' -fn 'JetBrains Mono Medium-12' -w '760' -h '24' -x '574' -y '48',rofi_run -r}
+
+
+# Tui filemanager and same command with sudo
+super + {_,shift + } r
+   {$TERMINAL -e $FILE, $TERMINAL -e sudo $FILE}
+
+# Show keys with rofi/default gui editor
+super + {_,shift + } e
+    {show_keys.sh, subl3}
+
+# Switch tile and monocle layoutand simple flip layout
+super + {_,shift + } m
+    {bspc desktop -l next, bspc node @/ -R 90}
+
+# News, tui music player
+super + {_,shift + } n
+    {$TERMINAL -e newsboat, $TERMFLOAT -g 110x30 -e ncmpcpp}
+
+# Htop,gtop system monitor
+#super + {_,shift + } i
+ #   {$TERMINAL -e htop, $TERMINAL -e gtop}
+
+# S,R,lock script,calendar app
+super + {_,shift + } c
+    {power, $TERMFLOAT -g 70x20-16+30 -e calcurse}
+
+# Default web browser brave and firefox
+super + {_,shift + } w
+    {$BROWSER –use-gl=desktop, firefox}
+
+# Chat client, gui filemanager
+super + {_,shift + } p
+    {discord, pcmanfm}
+
+# Hide polybar/Reload bspwm
+super + {_,shift + } b
+    {polybar-msg cmd toggle, $HOME/.config/bspwm/bspwmrc ;\notify-send "A konfigurációs fájl újratöltődik."}
+
+# Reload sxhkd
+super + {_,shift + } Escape
+    {pkill -USR1 -x sxhkd ;\notify-send "Sxhkd újratölt.", $HOME/.config/polybar/launch.sh ;\notify-send "Polybar újraindult."}
+
+# Fullscreen
+super + f
+  bspc node -t \~fullscreen
+
+# Close and kill
+#super + {_,shift + } q
+#	bspc node -{c,k}
+
+# Quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# emojimenu "get a menu of emojis to copy"
+super + grave
+    dmenuunicode
+
+# Kill screenkey
+super + Scroll_Lock
+    killall screenkey || screenkey
+
+# Record and stream
+super + {KP_Home,KP_End}
+    {dmenurecord, live.sh}
+
+# Kill recording and stream
+super + shift + x
+    killall ffmpeg
+
+#################################################
+           # ALT + KEYS#
+################################################
+
+# On/off transparency, pavucontrol
+alt + {a,b}
+   {pavucontrol,toggleprogram "picom -b"}
+
+##############################################
+        # FUNCTION KEYS#
+#############################################
+# Open help doc
+super + F1
+    zathura ~/.local/bin/Magyarch-bspwm.pdf
+
+# Edit conf files,select display,search the net
+super + {F2,F3,F11}
+  {edconf.sh,displayselect,ducksearch}
+
+# Decrease padding 0
+super + {F6,F7}
+    {bspc config right_padding 0;\
+    bspc config left_padding 0 ;\
+    bspc config top_padding 22 ;\
+    bspc config bottom_padding 1,bspc config right_padding 40;\
+    bspc config left_padding 40 ;\
+    bspc config top_padding 40 ;\
+    bspc config bottom_padding 40}
+
+# Change background
+super + F8
+    wal
+
+# Take and pick screenshot
+super + {F4,F5}
+    {maim ~/Képek/Képernyőképek/`date +%Y-%m-%d_%H:%M:%S`.png,maimpick}
+
+# Mount and umount a USB drive or Android device
+super + {F9,F10}
+    {dmenumount,dmenuumount}
+
+# Mpv floating
+super + F12
+    mpv --geometry=40%+30+30 --title="mpvfloat"
+
+###########################################
+        # Volume Control
+###########################################
+
+# Decrease volume -5
+alt + {Up,Down}
+    {amixer set Master 5%+,amixer set Master 5%-}
+
+# Mute volume
+F12
+   amixer set Master toggle

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+DIR="$HOME/.local/bin/wallpapers/Future/"
+
+WAL="$(ls $DIR/*.jpg | shuf -n1)"
+
+cat $WAL > ~/.config/wallpaper.png
+
+xwallpaper --no-randr --stretch  ~/.config/wallpaper.png
