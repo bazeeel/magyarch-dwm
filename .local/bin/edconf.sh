@@ -7,10 +7,10 @@
 
 declare options=("alias
 bash
-bspwm
+dwm
 profile
 vifm
-polybar
+slstatus
 sxhkd
 xprofile
 quit")
@@ -27,8 +27,8 @@ case "$choice" in
 	bash)
 		choice="$HOME/.bashrc"
 	;;
-	bspwm)
-		choice="$HOME/.config/bspwm/bspwmrc"
+	dwm)
+		choice="$HOME/.config/suckless/dwm/config.def.h"
 	;;
 	profile)
 		choice="$HOME/.profile"
@@ -36,8 +36,8 @@ case "$choice" in
 	vifm)
 		choice="$HOME/.config/vifm/vifmrc"
 	;;
-	polybar)
-		choice="$HOME/.config/polybar/config"
+	slstatus)
+		choice="$HOME/.config/suckless/slstatus/config.def.h"
 	;;
 	sxhkd)
 		choice="$HOME/.config/sxhkd/sxhkdrc"

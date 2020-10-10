@@ -1,9 +1,9 @@
 #!/bin/sh
 
-DIALOG_RESULT=$(echo -e 'Quit bspwm\nHibernate\nReboot\nPoweroff' | rofi -dmenu -i -p "SYSTEM" -hide-scrollbar -tokenize -lines 7 -eh 1 -width 25 -location 0 -xoffset 0 -yoffset 0 -padding 20 -disable-history)
+DIALOG_RESULT=$(echo -e 'Quit dwm\nHibernate\nReboot\nPoweroff' | rofi -dmenu -i -p "SYSTEM" -hide-scrollbar -tokenize -lines 7 -eh 1 -width 25 -location 0 -xoffset 0 -yoffset 0 -padding 20 -disable-history)
 
 case $DIALOG_RESULT in
-        "Quit bspwm" ) bspc quit ;;
+        "Quit dwm" ) pkill dwm ;;
         "Hibernate") systemctl hibernate ;;
         "Reboot") systemctl reboot ;;
         "Poweroff") systemctl poweroff ;;
