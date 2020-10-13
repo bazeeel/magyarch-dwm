@@ -1,6 +1,6 @@
 # Main and float terminal
 super + {_,shift + } Return
-    {$TERMINAL, $TERMFLOAT -g 110x30+450-350}
+    {$TERMINAL, $TERMFLOAT -g 110x30+550-350}
 
 # Dmenu2 and rofi(window switcher, application launcher)
 super + {_,shift +} d
@@ -15,9 +15,6 @@ super + {_,shift + } r
 super + {_,shift + } e
     {show_keys.sh, subl3}
 
-# Switch tile and monocle layoutand simple flip layout
-super + {_,shift + } m
-    {bspc desktop -l next, bspc node @/ -R 90}
 
 # News, tui music player
 super + {_,shift + } n
@@ -33,31 +30,17 @@ super + {_,shift + } c
 
 # Default web browser brave and firefox
 super + {_,shift + } w
-    {$BROWSER –use-gl=desktop, firefox}
+    {$BROWSER, firefox}
 
 # Chat client, gui filemanager
 super + {_,shift + } p
     {discord, pcmanfm}
 
-# Hide polybar/Reload bspwm
-super + {_,shift + } b
-    {polybar-msg cmd toggle, $HOME/.config/bspwm/bspwmrc ;\notify-send "A konfigurációs fájl újratöltődik."}
 
 # Reload sxhkd
 super + {_,shift + } Escape
     {pkill -USR1 -x sxhkd ;\notify-send "Sxhkd újratölt.", $HOME/.config/polybar/launch.sh ;\notify-send "Polybar újraindult."}
 
-# Fullscreen
-super + f
-  bspc node -t \~fullscreen
-
-# Close and kill
-#super + {_,shift + } q
-#	bspc node -{c,k}
-
-# Quit/restart bspwm
-super + alt + {q,r}
-	bspc {quit,wm -r}
 
 # emojimenu "get a menu of emojis to copy"
 super + grave
@@ -94,15 +77,6 @@ super + F1
 super + {F2,F3,F11}
   {edconf.sh,displayselect,ducksearch}
 
-# Decrease padding 0
-super + {F6,F7}
-    {bspc config right_padding 0;\
-    bspc config left_padding 0 ;\
-    bspc config top_padding 22 ;\
-    bspc config bottom_padding 1,bspc config right_padding 40;\
-    bspc config left_padding 40 ;\
-    bspc config top_padding 40 ;\
-    bspc config bottom_padding 40}
 
 # Change background
 super + F8
