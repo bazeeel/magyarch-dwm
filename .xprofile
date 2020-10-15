@@ -1,7 +1,7 @@
 #!/bin/sh
 
 setbg &		# Set the background
-sxhkd -c $HOME/.config/sxhkdrc &	# Bind keys
+sxhkd &	# Bind keys
 xsetroot -cursor_name left_ptr &
 xset r rate 500 30 &	# Speed xrate up
 unclutter &		# Remove mouse when idle
