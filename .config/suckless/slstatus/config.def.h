@@ -67,7 +67,7 @@ static const struct arg args[] = {
 	{ ram_total,    "%s |", NULL },
 	{ cpu_perc,     "🚀 %s%% | ",   NULL },
 	{ run_command,  "🌡️ %s | ",  "sensors | awk  '/Core 0/ {print $3}' " },
-	{ netspeed_rx,  " %sB/s | ",   "enp8s0" },
+	{ netspeed_rx,  "🔰 %sB/s | ",   "enp8s0" },
 	{ disk_used,	"🖥️ %s/ ", "/" },
 	{ disk_total,    "%s | ", "/" },
 	{ run_command,  "🔊 %2s | ", "amixer sget Master | grep Right | grep % | sed 's/[][]//g' | awk '{print $5}' " },

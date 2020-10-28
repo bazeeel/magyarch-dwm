@@ -31,4 +31,15 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 # Start graphical server if bspwm not already running./ha xinitrcből índitod az ablakkezelőd
 #[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x pkill bspwm >/dev/null && exec startx
 
+# Screenshot export.
+if [[ "$LANG" = "hu_HU.UTF-8" ]]
+then
+    export SCREENSHOTS="$(xdg-user-dir PICTURES)/Képernyőképek"
+    [ ! -d $SCREENSHOTS ] && mkdir -p $SCREENSHOTS >/dev/null 2>&1
+
+else
+    export SCREENSHOTS="$(xdg-user-dir PICTURES)/screenshots"
+    [ ! -d $SCREENSHOTS ] && mkdir -p $SCREENSHOTS >/dev/null 2>&1
+fi
+
 

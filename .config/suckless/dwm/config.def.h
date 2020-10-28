@@ -10,7 +10,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=11" , "JoyPixels:pixelsize=11:antialias=true:autohint=true" };
+static const char *fonts[]          = { "monospace:size=11" , "JoyPixels:pixelsize=11:antialias=true:autohint=true" , "FontAwesome:size=11" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#2f2b26";
 static const char col_gray2[]       = "#444444";
@@ -25,7 +25,8 @@ static const char *colors[][3]      = {
 
 /* tagging */
 /* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" }; 
+/* static const char *tags[] = { "", "", "", "", "", "", "", "", "" }; */
+static const char *tags[] = { "🥎 ", "🎭 ", "📋 ", "🍭 ", "🎲 ", "🎬 ", "🔰 ",  "📂 ", "🤖 " }; 
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -49,11 +50,11 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 #include "fibonacci.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+	{ "[@]",      spiral },   /* first entry is default */
+ 	{ "[\\]",      dwindle },
+	{ "[]=",      tile },    
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
- 	{ "[@]",      spiral },
- 	{ "[\\]",      dwindle },
 };
 
 /* key definitions */
@@ -86,11 +87,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_z,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[3]} },  /* floating layout */
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[2]} },  /* tile */
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[4]} },  /* monocle layout */
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[0]} },  /* spiral layout */
+	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[1]} },  /* dwindle */
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
