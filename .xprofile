@@ -5,8 +5,7 @@ sxhkd &	# Bind keys
 xsetroot -cursor_name left_ptr &
 xset r rate 500 30 &	# Speed xrate up
 unclutter &		# Remove mouse when idle
-#picom --config ~/.config/picom.conf &		# xcompmgr for transparency
-picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 &
+picom --experimental-backends --opacity-rule "80:class_g = 'URxvt'" -cCGfF -o 0.70 -O 0.028 -I 0.028 -t 0 -l 0 -r 7 -D2 -m 1.00  &
 dunst & # dunst for notifications
 slstatus &
 mpdupdate &
