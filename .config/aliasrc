@@ -51,9 +51,6 @@ alias unlock="sudo rm /var/lib/pacman/db.lck"
 #free
 alias free="free -mt"
 
-#use all cores
-#alias uac="sh ~/.bin/main/000*"
-
 #continue download
 alias wget="wget -c"
 
@@ -69,8 +66,8 @@ alias pacman='sudo pacman --color auto'
 alias update='sudo pacman -Syyu'
 
 # yay as aur helper - updates everything
-alias pksyua="yay -Syu --noconfirm"
-alias upall="yay -Syu --noconfirm"
+alias pksyua="paru -Syu --noconfirm"
+alias upall="paru -Syu --noconfirm"
 
 #ps
 alias psa="ps auxf"
@@ -82,6 +79,15 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 #add new fonts
 alias update-fc='sudo fc-cache -fv'
 
+#copy/paste all content of /etc/skel over to home folder - backup of config created - beware
+alias skel='cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -rf /etc/skel/* ~'
+#backup contents of /etc/skel to hidden backup folder in home/user
+alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
+
+#copy bashrc-latest over on bashrc - cb= copy bashrc
+#alias cb='sudo cp /etc/skel/.bashrc-latest /etc/skel/.bashrc && cp /etc/skel/.bashrc-latest ~/.bashrc && cp /etc/skel/.bashrc-latest ~/.bashrc-latest && source ~/.bashrc'
+#copy /etc/skel/.zshrc over on ~/.zshrc - cb= copy zshrc
+alias cz='sudo cp /etc/skel/.zshrc ~/.zshrc && source ~/.zshrc'
 
 #switch between bash and zsh
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
@@ -94,7 +100,7 @@ alias kc='killall conky'
 alias hw="hwinfo --short"
 
 #skip integrity check
-alias yayskip='yay -S --mflags --skipinteg'
+alias paruskip='paru -S --mflags --skipinteg'
 #alias trizenskip='trizen -S --skipinteg'
 
 #check vulnerabilities microcode
@@ -110,12 +116,12 @@ alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pac
 alias vbm="sudo mount -t vboxsf -o rw,uid=1000,gid=1000 Public /home/$USER/Public"
 
 #shopt
-shopt -s autocd # change to named directory
-shopt -s cdspell # autocorrects cd misspellings
-shopt -s cmdhist # save multi-line commands in history as single line
-shopt -s dotglob
-shopt -s histappend # do not overwrite history
-shopt -s expand_aliases # expand aliases
+#shopt -s autocd # change to named directory
+#shopt -s cdspell # autocorrects cd misspellings
+#shopt -s cmdhist # save multi-line commands in history as single line
+#shopt -s dotglob
+#shopt -s histappend # do not overwrite history
+#shopt -s expand_aliases # expand aliases
 
 #youtube-dl
 alias yta-aac="youtube-dl --extract-audio --audio-format aac "
@@ -129,12 +135,6 @@ alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 
-#devour swallow window
-#alias mpv="devour mpv"
-#alias sxiv="devour sxiv"
-#alias zathura="devour zathura"
-
-
 #Recent Installed Packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
@@ -144,6 +144,17 @@ alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 
 #get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
+
+#nano for important configration files
+#know what you do in these files
+alias nlightdm="sudo nano /etc/lightdm/lightdm.conf"
+alias npacman="sudo nano /etc/pacman.conf"
+alias ngrub="sudo nano /etc/default/grub"
+alias nmkinitcpio="sudo nano /etc/mkinitcpio.conf"
+alias nslim="sudo nano /etc/slim.conf"
+alias noblogout="sudo nano /etc/oblogout.conf"
+alias nmirrorlist="sudo nano /etc/pacman.d/mirrorlist"
+alias nconfgrub="sudo nano /boot/grub/grub.cfg"
 
 #gpg
 #verify signature for isos
