@@ -80,7 +80,7 @@ audio() { \
 	}
 
 askrecording() { \
-	choice=$(printf "screencast\\nvideo\\naudio\\nwebcam\\nwebcam (hi-def)" | dmenu -i -p "Select recording style:" -nb '#2f2b26' -sb '#2e8b57' -fn 'JetBrains Mono Medium-12' -w '780' -h '24' -x '574' -y '48')
+	choice=$(printf "screencast\\nvideo\\naudio\\nwebcam\\nwebcam (hi-def)" | dmenu -i -nb '#2f2b26' -nf '#c3cdc8' -sb '#2e8b57' -fn 'JetBrains Mono Medium-11' -p "Select recording style:" -nb '#c3cdc8' -nf '#000000' -sb '#2e8b57' -fn 'JetBrains Mono Medium-11')
 	case "$choice" in
 		screencast) screencast;;
 		audio) audio;;
@@ -91,7 +91,7 @@ askrecording() { \
 	}
 
 asktoend() { \
-	response=$(printf "No\\nYes" | dmenu  -i -p "Recording still active. End recording?" -nb '#2f2b26' -sb '#2e8b57' -fn 'JetBrains Mono Medium-12' -w '780' -h '24' -x '574' -y '48') &&
+	response=$(printf "No\\nYes" | dmenu -i -nb '#2f2b26' -nf '#c3cdc8' -sb '#2e8b57' -fn 'JetBrains Mono Medium-11' -p "Recording still active. End recording?" -nb '#c3cdc8' -nf '#000000' -sb '#2e8b57' -fn 'JetBrains Mono Medium-11') &&
 	[ "$response" = "Yes" ] &&  killrecording
 	}
 

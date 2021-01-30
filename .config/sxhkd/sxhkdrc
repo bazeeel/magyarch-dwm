@@ -70,8 +70,8 @@ alt + {a,b}
         # FUNCTION KEYS#
 #############################################
 # Open help doc
-super + F1
-    zathura ~/.local/bin/Magyarch-bspwm.pdf
+#super + F1
+ #   zathura ~/.local/bin/Magyarch-bspwm.pdf
 
 # Edit conf files,select display,search the net
 super + {F2,F3,F11}
