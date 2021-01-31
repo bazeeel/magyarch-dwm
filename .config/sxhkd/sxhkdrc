@@ -105,3 +105,6 @@ alt + {Up,Down}
 # Mute volume
 F12
    amixer set Master toggle
+
+F1
+  tdrop -ma -w 1914 -y 0 urxvt   
