@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx     = 6;        /* gaps between windows */
+static const unsigned int gappx     = 4;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -89,11 +89,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },  /* tile */
-	{ MODKEY,                       XK_a,      setlayout,      {.v = &layouts[1]} },  /* dwindle */
-	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[2]} },  /* spiral */
-	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },  /* floating */
-	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[4]} },  /* monocle */
-	{ MODKEY,                       XK_b,      setlayout,      {0} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },  /* monocle */
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[2]} },  /* floating */
+	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[3]} },  /* spiral layout */
+	{ MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[4]} },  /* dwindle */
+	/*{ MODKEY|ShiftMask,             XK_b,      setlayout,      {0} },*/
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -101,7 +101,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,		        XK_space,  cyclelayout,    {.i = -1 } },
+	{ MODKEY,		                XK_space,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_v, cyclelayout,    {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
