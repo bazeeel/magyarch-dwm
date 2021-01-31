@@ -33,13 +33,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class           instance    title       tags mask     isfloating   monitor */
-	{ "URxvt",          NULL,       NULL,       0,            1,           -1 },
+	/* class      instance    title       tags mask     isfloating   monitor */
+	{ "URxvt",     NULL,       NULL,       0,            1,           -1 },
 	{ "Brave-browser",  NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "discord",        NULL,       NULL,       1 << 1,        0,          -1 },
-	{ "Subl3",          NULL,       NULL,       1 << 2,        0,          -1 },
-	{ "Steam",          NULL,       NULL,       1 << 4,        0,          -1 },
-	{ "mpv",            NULL,       NULL,       1 << 5,        0,          -1 },
+	{ "discord",   NULL,       NULL,       1 << 1,        0,          -1 },
+	{ "Subl3",   NULL,       NULL,       1 << 2,        0,          -1 },
+	{ "Steam",   NULL,       NULL,       1 << 4,        0,          -1 },
+	{ "mpv",   NULL,       NULL,       1 << 5,        0,          -1 },
 };
 
 /* layout(s) */
@@ -50,9 +50,9 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 #include "fibonacci.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },      /* first entry is default */
-	{ "[@]",      spiral },   
- 	{ "[\\]",     dwindle },
+	{ "[]=",      tile },
+	{ "[@]",      spiral },   /* first entry is default */
+ 	{ "[\\]",      dwindle },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ NULL,       NULL },
@@ -88,9 +88,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_z,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },  /* tile */
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },  /* monocle */
-	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[2]} },  /* floating */
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },  /* floating layout */
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[1]} },  /* tile */
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },  /* monocle layout */
 	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[3]} },  /* spiral layout */
 	{ MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[4]} },  /* dwindle */
 	{ MODKEY,                       XK_b,      setlayout,      {0} },

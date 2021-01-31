@@ -10,7 +10,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=11" , "JoyPixels:pixelsize=11:antialias=true:autohint=true" , "FontAwesome:size=11" };
+static const char *fonts[]          = { "monospace:size=11" , "JoyPixels:pixelsize=11:antialias=true:autohint=true" , "FontAwesome:pixelsize=12" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#2f2b26";
 static const char col_gray2[]       = "#444444";
@@ -25,36 +25,37 @@ static const char *colors[][3]      = {
 
 /* tagging */
 /* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
-/* static const char *tags[] = { "", "", "", "", "", "", "", "", "" }; */
-static const char *tags[] = { "🥎 ", "🎭 ", "📋 ", "🍭 ", "🎲 ", "🎬 ", "🔰 ",  "📂 ", "🤖 " }; 
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+/* static const char *tags[] = { "🥎 ", "🎭 ", "📋 ", "🍭 ", "🎲 ", "🎬 ", "🔰 ",  "📂 ", "🤖 " };*/
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "URxvt",     NULL,       NULL,       0,            1,           -1 },
+	/* class           instance    title       tags mask     isfloating   monitor */
+	{ "URxvt",          NULL,       NULL,       0,            1,           -1 },
 	{ "Brave-browser",  NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "discord",   NULL,       NULL,       1 << 1,        0,          -1 },
-	{ "Subl3",   NULL,       NULL,       1 << 2,        0,          -1 },
-	{ "Steam",   NULL,       NULL,       1 << 4,        0,          -1 },
-	{ "mpv",   NULL,       NULL,       1 << 5,        0,          -1 },
+	{ "discord",        NULL,       NULL,       1 << 1,        0,          -1 },
+	{ "Subl3",          NULL,       NULL,       1 << 2,        0,          -1 },
+	{ "Steam",          NULL,       NULL,       1 << 4,        0,          -1 },
+	{ "mpv",            NULL,       NULL,       1 << 5,        0,          -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.52; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 #include "fibonacci.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[@]",      spiral },   /* first entry is default */
- 	{ "[\\]",      dwindle },
-	{ "[]=",      tile },    
+	{ "[]=",      tile },      /* first entry is default */
+	{ "[@]",      spiral },   
+ 	{ "[\\]",     dwindle },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ NULL,       NULL },
 };
 
 /* key definitions */
@@ -87,12 +88,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_z,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[3]} },  /* floating layout */
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[2]} },  /* tile */
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[4]} },  /* monocle layout */
-	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[0]} },  /* spiral layout */
-	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[1]} },  /* dwindle */
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },  /* tile */
+	{ MODKEY,                       XK_a,      setlayout,      {.v = &layouts[1]} },  /* dwindle */
+	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[2]} },  /* spiral */
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },  /* floating */
+	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[4]} },  /* monocle */
+	{ MODKEY,                       XK_b,      setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -100,6 +101,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,		        XK_space,  cyclelayout,    {.i = -1 } },
+	{ MODKEY|ControlMask,           XK_v, cyclelayout,    {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
