@@ -1,2 +1,0 @@
-#!/bin/sh
-echo "📐" | dmenu -nb '#2f2b26' -nf '#c3cdc8' -sb '#2e8b57' -fn 'JetBrains Mono Medium-11' -p "Give width and height:" | xargs xdotool windowsize "$(xdotool getwindowfocus)"

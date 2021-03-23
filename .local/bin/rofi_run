@@ -34,7 +34,7 @@ EOF
 }
 
 if (( $# == 0 )); then
-	rofi -modi run,drun -show drun -line-padding 4 -columns 2 -padding 50 -hide-scrollbar -show-icons -drun-icon-theme "MagyArch-Dark"
+	rofi -modi run,drun -show drun -eh 1 -line-padding 3 -columns 2 -padding 50 -hide-scrollbar -show-icons -drun-icon-theme "oomox-baloon"
 else
 	for arg in "$@"; do
 		case $arg in
@@ -47,35 +47,34 @@ else
 				exit 0
 				;;
 			-r|--run)
-				rofi -modi run,drun -show drun -line-padding 4 -columns 2 -padding 50 -hide-scrollbar -show-icons -drun-icon-theme "MagyArch-Dark"
+				rofi -modi run,drun -show drun -line-padding 3 -columns 2 -padding 30 -hide-scrollbar -show-icons -drun-icon-theme "oomox-baloon"
 				;;
 			-w|--window)
-				rofi -modi window -show window -hide-scrollbar -padding 50 -line-padding 4
+				rofi -modi window -show window -hide-scrollbar -padding 50 -width 30 -line-padding 4
 				;;
 			-q|--qalculate)
 				hash qalc >/dev/null 2>&1 || { echo "Requires 'libqalculate' installed"; exit 1; }
-				rofi -modi "calc:qalc +u8 -nocurrencies" -padding 50 -show "calc:qalc +u8 -nocurrencies" -line-padding 4 -hide-scrollbar
+				rofi -modi "calc:qalc +u8 -nocurrencies" -padding 50 -width 30 -show "calc:qalc +u8 -nocurrencies" -line-padding 4 -hide-scrollbar
 				;;
 			-c|--clipboard)
 				hash greenclip >/dev/null 2>&1 || { echo "Requires 'greenclip' installed"; exit 1; }
-				rofi -modi "clipboard:greenclip print" -padding 50 -line-padding 4 -show "clipboard:greenclip print" -hide-scrollbar
+				rofi -modi "clipboard:greenclip print" -width 20 -padding 50 -columns 2 -line-padding 2 -show "clipboard:greenclip print" -hide-scrollbar
 				;;
 			-b|--browser)
 				hash surfraw >/dev/null 2>&1 || { echo "Requires 'surfraw' installed"; exit 1; }
 				surfraw -browser="$BROWSER" "$(sr -elvi | awk -F'-' '{print $1}' | sed '/:/d' | awk '{$1=$1};1' |
-					rofi -hide-scrollbar -kb-row-select 'Tab' -kb-row-tab 'Control+space' -dmenu -mesg 'Tab for Autocomplete' -i -p 'Web Search')"
+					rofi -hide-scrollbar -kb-row-select 'Tab' -kb-row-tab 'Control+space' -dmenu -lines 6 -mesg 'Tab for Autocomplete' -i -p 'Web Search')"
 				;;
 			-l|--logout)
 				if grep -q 'startx' $HOME/.*profile; then
-					ANS="$(rofi -sep "|" -dmenu -i -p 'System' -width 20 -hide-scrollbar -line-padding 4 -padding 20 -lines 3 <<< " Lock| Reboot| Shutdown")"
+					ANS="$(rofi -sep "|" -dmenu -i -p 'System' -width 20 -hide-scrollbar -line-padding 4 -padding 20 -lines 3 <<< " Logout| Reboot| Shutdown")"
 				else
-					ANS="$(rofi -sep "|" -dmenu -i -p 'System' -width 20 -hide-scrollbar -line-padding 4 -padding 20 -lines 4 <<< " Lock| Logout| Reboot| Shutdown")"
+					ANS="$(rofi -sep "|" -dmenu -i -p 'System' -width 20 -hide-scrollbar -line-padding 4 -padding 15 -lines 3 <<< " Logout| Reboot| Shutdown")"
 				fi
 				case "$ANS" in
-					*Lock) i3lock-fancy ;;
 					*Reboot) systemctl reboot ;;
 					*Shutdown) systemctl -i poweroff ;;
-					*Logout) session-logout >/dev/null 2>&1 || pkill -15 -t tty"$XDG_VTNR" Xorg ;;
+					*Logout) fancy-quit ;;
 				esac
 				;;
 			*)

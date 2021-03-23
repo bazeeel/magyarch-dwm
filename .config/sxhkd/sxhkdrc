@@ -1,6 +1,6 @@
 # Main and float terminal
 super + {_,shift + } Return
-    {$TERMINAL, $TERMFLOAT -g 110x30+550-350}
+    {$TERMINAL, $TERMFLOAT}
 
 # Dmenu2 and rofi(window switcher, application launcher)
 super + {_,shift +} d
@@ -26,11 +26,11 @@ super + {_,shift + } n
 
 # S,R,lock script,calendar app
 super + {_,shift + } c
-    {power, $TERMFLOAT -g 70x20-16+30 -e calcurse}
+    {rofi_run -l, $TERMFLOAT -e calcurse}
 
-# Default web browser brave and firefox
+# Default web browser brave/rofi show windows
 super + {_,shift + } w
-    {$BROWSER, firefox}
+    {$BROWSER, rofi_run -w}
 
 # Chat client, gui filemanager
 super + {_,shift + } p
@@ -38,8 +38,8 @@ super + {_,shift + } p
 
 
 # Reload sxhkd
-super + {_,shift + } Escape
-    {pkill -USR1 -x sxhkd ;\notify-send "Sxhkd újratölt.", $HOME/.config/polybar/launch.sh ;\notify-send "Polybar újraindult."}
+super + Escape
+    pkill -USR1 -x sxhkd ;\notify-send "Sxhkd újratölt."
 
 
 # emojimenu "get a menu of emojis to copy"
@@ -63,7 +63,7 @@ super + shift + x
 ################################################
 
 # On/off transparency, pavucontrol
-alt + {a,b}
+super + {a,b}
    {pavucontrol,toggleprogram "picom -b"}
 
 ##############################################
@@ -107,4 +107,4 @@ F12
    amixer set Master toggle
 
 F1
-  tdrop -ma -w 1914 -y 0 urxvt   
+  tdrop -ma -w 1914 -y 0 st

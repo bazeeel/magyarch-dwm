@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#wmctrl -l | awk '{print $1}' | while read APP; do
+#wmctrl -i -c $APP || echo "$APP not killed"
+#done
+#quit dwm
+dwm=$( ps -o pid,cmd ax | awk '/dwm/{ if ($2 == "dwm") print $1 }' )
+
+[[ ! -z "$dwm" ]] && kill -s TERM $dwm
+exit 0
