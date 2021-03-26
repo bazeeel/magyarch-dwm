@@ -65,7 +65,7 @@ static const struct arg args[] = {
 	/* function format          argument */
 	{ ram_used,     "🧠 %s/",   NULL },
 	{ ram_total,    "%s |", NULL },
-	{ cpu_perc,     "🚀 %s%% |",   NULL },
+	/*{ cpu_perc,     "🚀 %s%% |",   NULL },*/
 	{ run_command,  "🌡️ %s |",  "sensors | awk  '/Core 0/ {print $3}' " },
 	/*{ netspeed_rx,  "🔰 %sB/s |",   "enp3s0" },*/
 	{ disk_used,	"🖥️ %s/ ", "/" },
