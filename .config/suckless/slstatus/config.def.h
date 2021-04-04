@@ -63,15 +63,18 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
+	{ uptime,  "💡 %s |", NULL },
+	{ kernel_release,      "🐧 %s|",  NULL },
 	{ ram_used,     "🧠 %s/",   NULL },
 	{ ram_total,    "%s |", NULL },
 	/*{ cpu_perc,     "🚀 %s%% |",   NULL },*/
 	{ run_command,  "🌡️ %s |",  "sensors | awk  '/Core 0/ {print $3}' " },
-	/*{ netspeed_rx,  "🔰 %sB/s |",   "enp3s0" },*/
-	{ disk_used,	"🖥️ %s/ ", "/" },
+	{ netspeed_rx,  "⬇️ %sB/s |",   "enp3s0" },
+	{ netspeed_tx,  "⬆️ %sB/s |",          "enp3s0" },
+	{ disk_used,	"🏢 %s/ ", "/" },
 	{ disk_total,    "%s |", "/" },
 	/*{ run_command,  " %s |", "curl wttr.in?format=3" },*/
-	{ run_command,  "%s |",    "weather" },
+	{ run_command,  "%s |",  "weather" },
 	{ datetime, "📅 %s |",  "%Y-%m-%d 🕛 %H:%M" },
 	/*{ run_command,  "🔊 %2s |", "amixer sget Master | grep Right | grep % | sed 's/[][]//g' | awk '{print $5}' " },*/
 	{ run_command,  "🔊 %s%% |",  "volume" },

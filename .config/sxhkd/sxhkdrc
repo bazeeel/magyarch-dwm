@@ -1,6 +1,6 @@
 # Main and float terminal
-super + {_,shift + } Return
-    {$TERMINAL, $TERMFLOAT}
+super + Return
+    $TERMINAL
 
 # Dmenu2 and rofi(window switcher, application launcher)
 super + {_,shift +} d

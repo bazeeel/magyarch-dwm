@@ -13,7 +13,7 @@ mpdupdate &
 nm-applet &
 #xrandr --output LVDS1 --mode 1366x768 --output HDMI1 --mode 1920x1080 --right-of LVDS1 &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-#xwallpaper --no-randr /usr/share/backgrounds/magyarch/wallpaper.png &
+#xwallpaper --no-randr --stretch ~/.config/wallpaper.png
 zathura ~/.local/share/Magyarch-dwm.pdf &
 
 
