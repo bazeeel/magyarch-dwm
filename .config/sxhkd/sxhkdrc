@@ -1,11 +1,10 @@
-# Main and float terminal
+# Main terminal
 super + Return
     $TERMINAL
 
 # Dmenu2 and rofi(window switcher, application launcher)
 super + {_,shift +} d
     {dmenu_run -i -p 'Search' -nb '#2f2b26' -sb '#2e8b57' -fn 'JetBrains Mono Medium-12' -w '760' -h '24' -x '574' -y '48',rofi_run -r}
-
 
 # Tui filemanager and same command with sudo
 super + {_,shift + } r
@@ -15,14 +14,9 @@ super + {_,shift + } r
 super + {_,shift + } e
     {show_keys.sh, subl3}
 
-
 # News, tui music player
 super + {_,shift + } n
     {$TERMINAL -e newsboat, $TERMFLOAT -g 110x30 -e ncmpcpp}
-
-# Htop,gtop system monitor
-#super + {_,shift + } i
- #   {$TERMINAL -e htop, $TERMINAL -e gtop}
 
 # S,R,lock script,calendar app
 super + {_,shift + } c
@@ -36,19 +30,9 @@ super + {_,shift + } w
 super + {_,shift + } p
     {discord, pcmanfm}
 
-
 # Reload sxhkd
 super + Escape
     pkill -USR1 -x sxhkd ;\notify-send "Sxhkd újratölt."
-
-
-# emojimenu "get a menu of emojis to copy"
-super + grave
-    dmenuunicode
-
-# Kill screenkey
-super + Scroll_Lock
-    killall screenkey || screenkey
 
 # Record and stream
 super + {KP_Home,KP_End}
@@ -69,6 +53,7 @@ super + {a,b}
 ##############################################
         # FUNCTION KEYS#
 #############################################
+
 # Open help doc
 super + F1
     zathura ~/.local/share/Magyarch-dwm.pdf
@@ -76,7 +61,6 @@ super + F1
 # Edit conf files,select display,search the net
 super + {F2,F3,F11}
   {edconf.sh,displayselect,ducksearch}
-
 
 # Change background
 super + F8
@@ -90,15 +74,12 @@ super + {F4,F5}
 super + {F9,F10}
     {dmenumount,dmenuumount}
 
-# Mpv floating
-super + F12
-    mpv --geometry=40%+30+30 --title="mpvfloat"
 
 ###########################################
         # Volume Control
 ###########################################
 
-# Decrease volume -5
+# Increase,decrease volume -5
 alt + {Up,Down}
     {amixer set Master 5%+,amixer set Master 5%-}
 
@@ -106,5 +87,6 @@ alt + {Up,Down}
 F12
    amixer set Master toggle
 
+# Test phase
 F1
   tdrop -ma -w 1914 -y 0 st
