@@ -10,15 +10,15 @@ super + {_,shift +} d
 super + {_,shift + } r
    {$TERMINAL -e $FILE, $TERMINAL -e sudo $FILE}
 
-# Show keys with rofi/default gui editor
+# Show keys with rofi/sublime default gui editor
 super + {_,shift + } e
     {show_keys.sh, subl3}
 
-# News, tui music player
+# Newsboat for rss, tui music player
 super + {_,shift + } n
     {$TERMINAL -e newsboat, $TERMFLOAT -g 110x30 -e ncmpcpp}
 
-# S,R,lock script,calendar app
+# Powermenu S,R,lock,calendar app
 super + {_,shift + } c
     {rofi_run -l, $TERMFLOAT -e calcurse}
 
@@ -59,8 +59,8 @@ super + F1
     zathura ~/.local/share/Magyarch-dwm.pdf
 
 # Edit conf files,select display,search the net
-super + {F2,F3,F11}
-  {edconf.sh,displayselect,ducksearch}
+super + {F2,F3}
+  {edconf.sh,rofi_run -b}
 
 # Change background
 super + F8
