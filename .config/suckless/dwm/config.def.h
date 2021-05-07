@@ -55,7 +55,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.52; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 #include "fibonacci.c"
 #include "horizgrid.c"
@@ -90,6 +90,7 @@ static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "mst", "-t", scratchpadname, "-g", "120x30", "-e", "ncmpcpp", NULL };
 static const char *termcmd[] = { "mst", "-g", "120x30", NULL };
 
+#include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	/*{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },*/
@@ -101,6 +102,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY|ShiftMask,             XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_z,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
