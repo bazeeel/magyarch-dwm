@@ -12,7 +12,7 @@ super + {_,shift + } r
 
 # Show keys with rofi/sublime default gui editor
 super + {_,shift + } e
-    {show_keys.sh, subl3}
+    {show_keys.sh, subl}
 
 # Newsboat for rss, tui music player
 super + {_,shift + } n
