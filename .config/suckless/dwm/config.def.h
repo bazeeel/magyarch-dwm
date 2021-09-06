@@ -12,7 +12,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrains Mono Nerd Font:pixelsize=14" , "JoyPixels:pixelsize=11:antialias=true:autohint=true" , "FontAwesome:pixelsize=12" };
 static const char dmenufont[]       = "JetBrains Mono Nerd Font:pixelsize=13";
-static const char col_1[]       = "#2f2b26";  /* background color of bar and border color unfocused windows */
+static const char col_1[]       = "#1a1a1a";  /* background color of bar and border color unfocused windows */
 static const char col_2[]       = "#c3cdc8";  /* foreground color of bar and tags */
 static const char col_3[]       = "#2e8b57";  /* border color focused windows and tags */
 static const char *colors[][3]  = {
@@ -22,8 +22,8 @@ static const char *colors[][3]  = {
 };
 
 /* tagging */
-/*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };*/ 
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };  
+/*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };*/
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 /* static const char *tags[] = { "🥎 ", "🎭 ", "📋 ", "🍭 ", "🎲 ", "🎬 ", "🔰 ",  "📂 ", "🤖 " };*/
 
 /* launcher commands (They must be NULL terminated) */
@@ -139,7 +139,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ShiftMask,             XK_Escape, quit,           {1} }, 
+	{ MODKEY|ShiftMask,             XK_Escape, quit,           {1} },
 };
 
 /* button definitions */
