@@ -13,6 +13,7 @@ alias v="vifmrun"
 alias z="zathura"
 alias x="sxiv -ft *"
 alias sdn="sudo shutdown -h now"
+alias sr="sudo reboot"
 alias diff="diff --color=auto"
 alias q="exit"
 
@@ -63,9 +64,8 @@ alias merge="xrdb -merge ~/.Xresources"
 alias pacman='sudo pacman --color auto'
 alias update='sudo pacman -Syyu'
 
-# yay as aur helper - updates everything
-alias pksyua="paru -Syu --noconfirm"
-alias upall="paru -Syu --noconfirm"
+# paru as aur helper - updates everything
+alias upall="paru -Syu"
 
 #ps
 alias psa="ps auxf"
@@ -138,9 +138,7 @@ alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 #receive the key of a developer
 alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
-#shutdown or reboot
-alias ssn="sudo shutdown now"
-alias sr="sudo reboot"
+
 
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
