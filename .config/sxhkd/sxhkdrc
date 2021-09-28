@@ -4,7 +4,7 @@ super + Return
 
 # Dmenu2 and rofi(window switcher, application launcher)
 super + {_,shift +} d
-    {dmenu_run -i -p 'Search' -nb '#2f2b26' -sb '#2e8b57' -fn 'JetBrains Mono Medium-12' -w '760' -h '24' -x '574' -y '48',rofi_run -r}
+    {dmenu_run -i -p 'Search' -nb '#1a1a1a' -sb '#2e8b57' -fn 'JetBrains Mono Medium-12' -w '760' -h '24' -x '574' -y '48',rofi_run -r}
 
 # Tui filemanager and same command with sudo
 super + {_,shift + } r
