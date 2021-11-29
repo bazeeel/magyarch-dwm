@@ -14,7 +14,8 @@ nm-applet &  # networkmanager tray icon
 #xrandr --output LVDS1 --mode 1366x768 --output HDMI1 --mode 1920x1080 --right-of LVDS1 &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #xwallpaper --no-randr --stretch ~/.config/wallpaper.png
-zathura ~/.local/share/Magyarch-dwm.pdf &
+#zathura ~/.local/share/Magyarch-dwm.pdf &
+sleep 2s && notify-send 'Nyomja meg a Super+F1-et a használati utasításért.' -t 10000 &
 
 
 
